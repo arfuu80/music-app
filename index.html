@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Music player</title>
+</head>
+
+<body>
+    
+    <div class="container-2">
+        <div class="big-box">
+            
+            <div class="music">
+                
+            </div>
+            <img src="" alt="" id="track_image">
+            <marquee direction="right" class="song-name" id="title">song</marquee>
+            <p class="artist" id="artist">artist</p>
+            <input type="range" id="duration_slider" onclick="change_duraion" value="0">
+            <br>
+            <button onclick="previousSong()" id="pre"> <i class="fa-solid fa-angles-left"></i> </button>
+            <button onclick="justplay()" id="play"><i class="fa-regular fa-circle-play"></i></button>
+            <button onclick="nextSong()" id="next"> <i class="fa-solid fa-angles-right"></i></button>
+        </div>
+    </div>
+    <div class="container-1">
+        <header>
+            <p>Music Player</p>
+        </header>
+        <p class="quote">Make Your Own Kind Of Music</p>
+    </div>
+
+    <script src="index.js"></script>
+    <script>
+
+        const tracks = [
+            {
+                title: "Shape Of You...",
+                artist: "ED Sheeran",
+                image: "shap of you.png",
+                audio: "Shape of You-(PagalSongs.Com.IN).mp3"
+            },
+            {
+                title: "Infinity - jaymes Young (Lyrics) __ David Kushner, ",
+                artist: "ED Sheeran",
+                image: "infinity.jpg",
+                audio: "Infinity - jaymes Young (Lyrics) __ David Kushner, Ed Sheeran... (MixLyrics).mp3"
+            },
+            {
+               title:"Justin Bieber - Baby ft. Ludacris",
+               artist:"Justin Bieber",
+               image:"baby.jpg",
+               audio:"Justin Bieber - Baby ft. Ludacris.mp3"
+            },
+            {
+              title:" On My Way....",
+              artist:"Sabrina Carpenter",
+              image:"alan walker.jpg",
+              audio:"Alan Walker, Sabrina Carpenter & Farruko  - On My Way.mp3"
+            },
+            {
+                title:"Believer...",
+              artist:"Imagine Dragons",
+              image:"believer.jpeg",
+              audio:"Believer(PaglaSongs).mp3"
+            }
+
+        ];
+
+        let currentTrackIndex = 0;
+        const track = new Audio(tracks[currentTrackIndex].audio);
+
+        function loadTrack(trackIndex) {
+            const currentTrack = tracks[trackIndex];
+            document.getElementById("track_image").src = currentTrack.image;
+            document.getElementById("title").textContent = currentTrack.title;
+            document.getElementById("artist").textContent = currentTrack.artist;
+            track.src = currentTrack.audio;
+        }
+
+        function justplay() {
+            if (track.paused) {
+                track.play();
+                document.getElementById("play").innerHTML = '<i class="fa-regular fa-pause-circle"></i>';
+            } else {
+                track.pause();
+                document.getElementById("play").innerHTML = '<i class="fa-regular fa-play-circle"></i>';
+            }
+        }
+
+        function nextSong() {
+            currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+            loadTrack(currentTrackIndex);
+            justplay();
+        }
+
+        function previousSong() {
+            currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
+            loadTrack(currentTrackIndex);
+            justplay();
+        }
+
+        document.getElementById("duration_slider").addEventListener("input", function () {
+            track.currentTime = this.value;
+        });
+
+        track.addEventListener("timeupdate", function () {
+            const duration_slider = document.getElementById("duration_slider");
+            duration_slider.value = track.currentTime;
+        });
+
+        loadTrack(currentTrackIndex);
+
+    </script>
+
+</body>
+
+</html> 
