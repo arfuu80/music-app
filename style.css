@@ -8,30 +8,8 @@ body{
     background: chocolate;
 }
 
-.container-1 header p{
-    color: white;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 70px;
-    /* position: absolute; */
-    margin-top: 18%;
-    margin-left: 10%;
-  
-}
-.container-1 .quote{
-    color: rgb(219, 215, 215);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 40px;
-    /* margin-top: 10%; */
-    margin-left: 10%;
-    position: relative;
 
-}
-.quote{
-    animation: text 1s 1;
-}
- p{
-    animation: text1 1s 1;
-}
+
 @keyframes text{
     0%{
         margin-top: -40px;
@@ -47,25 +25,32 @@ body{
         margin-right: -40px;
     }
 }
+@keyframes text4{
+    0%{
+        color: rgb(10, 10, 9);
+    }
+    25%{
+        color: rgb(9, 224, 20);
+    }
+    50%{
+        color: rgb(253, 248, 240);
+    }
+   
+}
 
   
-/* .container-1{
-    transform: translate(-50%.-50%);
-} */
-.container-1 p .quote{
-    text-transform: uppercase;
-    display: block;
-}
+
+
 
 
 .big-box{
-    height: 75vh;
+    height: 80vh;
     width: 23%;
     border: none;
-    border-radius: 10px;
+    border-radius: 2px;
     float: right;
-    margin-top: -14%;
-    margin-right: 10%;
+    margin-top: 5%;
+    margin-right: 36%;
     box-shadow: 0px 0px 6px 6px rgb(73, 65, 65);
     animation: text3 1.8s 1;
 }
@@ -121,31 +106,50 @@ border: 5px solid rgb(226, 225, 225);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     position: absolute;
 }
+#start_time{
+   color: white;
+   font-family:Arial, Helvetica, sans-serif;
+   margin-left: 10px;
+}
+#end_time{
+    float: right;
+    color: white;
+   font-family:Arial, Helvetica, sans-serif;
+   margin-right: 10px;
+   margin-top: -20px;
+}
+.big-box h3{
+    position: absolute;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    font-size: 30px;
+    margin-left: 5%;
+    animation: text4 1s 1;
+}
+
 
 
 
 @media only screen and (max-width:400px){ 
-    /* .big-box {
-        height: 75vh;
-        width: 95%;
-        border: none;
-        border-radius: 10px;
-        float: right;
-        position: absolute;
-        margin-top: 72%;
-        margin-right: 10%;
-        box-shadow: 0px 0px 6px 6px rgb(73, 65, 65);
-    } */
+  
     .big-box {
-        height: 80vh;
-        width: 76%;
-        border: none;
-        border-radius: 10px;
+        height: 88vh;
+        width: 81%;
+        /* border: none; */
+        /* border-radius: 10px; */
         float: right;
         /* position: absolute; */
-        margin-top: 40%;
-        margin-right: 15%;
-        box-shadow: 0px 0px 6px 6px rgb(73, 65, 65);
+        margin-top: 10%;
+        margin-right: 10%;
+        /* box-shadow: 0px 0px 6px 6px rgb(73, 65, 65); */
+    }
+    .big-box h3 {
+        position: absolute;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: white;
+        font-size: 28px;
+        margin-left: 16%;
+        animation: text4 1s 1;
     }
    
     .container-1 header p {
@@ -159,11 +163,11 @@ border: 5px solid rgb(226, 225, 225);
     img {
         /* box-shadow: 0px 0px 0px 6px rgb(73, 65, 65); */
         border: 5px solid rgb(226, 225, 225);
-        height: 193px;
-        width: 212px;
+        height: 185px;
+        width: 204px;
         border-radius: 10px;
         margin-left: 11%;
-        margin-top: 9%;
+        margin-top: 18%;
     }
     .container-2 .song-name {
         font-size: 41px;

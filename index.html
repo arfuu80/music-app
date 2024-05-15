@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +18,7 @@
     
     <div class="container-2">
         <div class="big-box">
-            
+            <h3>Music player</h3>
             <div class="music">
                 
             </div>
@@ -26,6 +27,9 @@
             <p class="artist" id="artist">artist</p>
             <input type="range" id="duration_slider" onclick="change_duraion" value="0">
             <br>
+            <p id="start_time">00:00</p>
+            <p id="end_time">00:00</p> 
+            <br>
             <button onclick="previousSong()" id="pre"> <i class="fa-solid fa-angles-left"></i> </button>
             <button onclick="justplay()" id="play"><i class="fa-regular fa-circle-play"></i></button>
             <button onclick="nextSong()" id="next"> <i class="fa-solid fa-angles-right"></i></button>
@@ -33,9 +37,9 @@
     </div>
     <div class="container-1">
         <header>
-            <p>Music Player</p>
+            <!-- <p>Music Player</p> -->
         </header>
-        <p class="quote">Make Your Own Kind Of Music</p>
+        <!-- <p class="quote">Make Your Own Kind Of Music</p> -->
     </div>
 
     <script src="index.js"></script>
@@ -115,7 +119,23 @@
         track.addEventListener("timeupdate", function () {
             const duration_slider = document.getElementById("duration_slider");
             duration_slider.value = track.currentTime;
+            const start_time = document.getElementById("start_time");
+            const end_time = document.getElementById("end_time");
+            start_time.textContent = formatTime(track.currentTime);
+            end_time.textContent = formatTime(track.duration);
         });
+
+        function formatTime(seconds) {
+            let min = Math.floor(seconds / 60);
+            let sec = Math.floor(seconds % 60);
+            if (min < 10) {
+                min = "0" + min;
+            }
+            if (sec < 10) {
+                sec = "0" + sec;
+            }
+            return min + ":" + sec;
+        }
 
         loadTrack(currentTrackIndex);
 
@@ -123,4 +143,5 @@
 
 </body>
 
-</html> 
+</html>
+
